@@ -23,8 +23,9 @@ public class HudManager {
 	static ArrayList<HudElement> elements = new ArrayList<HudElement>();
 	
 	public static void populateElements() {
-		elements.add(new HudTitle());
+		elements.add(new HudTitle("Henry's Hud"));
 		elements.add(new HudFrameRate());
+		elements.add(new HudSpacing());
 		elements.add(new HudClicks());
 		elements.add(new HudFacing());
 	}
@@ -36,7 +37,10 @@ public class HudManager {
 			
 			if(element.needUpdate) element.update();
 			
-			String prefixText = seperatorColor + openSeperator + highlightColor + element.prefix + seperatorColor + closeSeperator + " ";
+			String prefixText;
+			if(element.prefix == null) prefixText = "";
+			else prefixText = seperatorColor + openSeperator + highlightColor + element.prefix + seperatorColor + closeSeperator + " ";
+			
 			String valueText = mainColor + element.getValue();
 			
 			Minecraft.getMinecraft().fontRendererObj.drawStringWithShadow(prefixText + valueText, sidePadding, sidePadding + 10 * i, 0xffffff);

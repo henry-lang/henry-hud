@@ -7,7 +7,7 @@ public class HudElement {
 	public String prefix;
 	
 	public String getValue() {
-		return "Default Value";
+		return "";
 	}
 	
 	public void update() {
