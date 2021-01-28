@@ -1,0 +1,16 @@
+[
+{
+  "modid": "henryhud",
+  "name": "HenryHud",
+  "description": "Henry's Hud Mod!",
+  "version": "${version}",
+  "mcversion": "${mcversion}",
+  "url": "",
+  "updateUrl": "",
+  "authorList": ["henrylang"],
+  "credits": "henrylang",
+  "logoFile": "",
+  "screenshots": [],
+  "dependencies": []
+}
+]
