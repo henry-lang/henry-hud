@@ -28,7 +28,7 @@ public class ModMain {
     	MinecraftForge.EVENT_BUS.register(new HudManager());
     	MinecraftForge.EVENT_BUS.register(new PresenceEvents());
     	Presence.load();
-//    	Config.loadConfig();
+    	Config.load();
     }
     
     @EventHandler

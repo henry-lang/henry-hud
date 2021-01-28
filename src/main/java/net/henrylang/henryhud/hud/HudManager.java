@@ -2,9 +2,7 @@ package net.henrylang.henryhud.hud;
 
 import java.util.ArrayList;
 
-import net.henrylang.henryhud.hud.elements.HudClicks;
-import net.henrylang.henryhud.hud.elements.HudFrameRate;
-import net.henrylang.henryhud.hud.elements.HudTitle;
+import net.henrylang.henryhud.hud.elements.*;
 import net.minecraft.client.Minecraft;
 import net.minecraft.util.EnumChatFormatting;
 import net.minecraftforge.client.event.RenderGameOverlayEvent;
@@ -14,7 +12,7 @@ public class HudManager {
 	
 	public static String seperatorColor = EnumChatFormatting.WHITE.toString();
 	public static String mainColor = EnumChatFormatting.WHITE.toString();
-	public static String highlightColor = EnumChatFormatting.GOLD.toString();
+	public static String highlightColor = EnumChatFormatting.GOLD.toString() + EnumChatFormatting.BOLD.toString();
 	
 	public static char openSeperator = '<';
 	public static char closeSeperator = '>';
@@ -28,6 +26,7 @@ public class HudManager {
 		elements.add(new HudTitle());
 		elements.add(new HudFrameRate());
 		elements.add(new HudClicks());
+		elements.add(new HudFacing());
 	}
 	
 	@SubscribeEvent

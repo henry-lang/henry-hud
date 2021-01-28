@@ -7,7 +7,7 @@ import com.google.gson.stream.JsonReader;
 public class Config {
 	File configFile;
 	
-	public static void loadConfig() {
+	public static void load() {
 		
 	}
 }

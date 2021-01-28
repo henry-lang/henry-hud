@@ -4,13 +4,9 @@ import java.util.ArrayList;
 
 import org.lwjgl.input.Mouse;
 
-import com.google.gson.stream.JsonReader;
-
 import net.henrylang.henryhud.hud.HudElement;
-import net.minecraft.client.Minecraft;
 
 public class HudClicks extends HudElement {
-	
 	boolean leftDown = false;
 	boolean rightDown = false;
 	
