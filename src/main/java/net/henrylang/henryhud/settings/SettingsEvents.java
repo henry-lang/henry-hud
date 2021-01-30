@@ -8,10 +8,19 @@ import net.minecraftforge.client.event.GuiScreenEvent.InitGuiEvent;
 import net.minecraftforge.fml.common.eventhandler.SubscribeEvent;
 
 public class SettingsEvents {
+	SettingsMenu currentHudMenu;
+	
 	@SubscribeEvent
 	public void onActionPerformed(ActionPerformedEvent.Post event) {
-		if(event.button.id == SettingsButtons.OPEN_SETTINGS.getID() && Minecraft.getMinecraft().currentScreen instanceof GuiOptions) {
-			Minecraft.getMinecraft().displayGuiScreen(new SettingsMenu(event.gui));
+		boolean inMinecraftSettings = Minecraft.getMinecraft().currentScreen instanceof GuiOptions;
+		boolean inHudSettings = Minecraft.getMinecraft().currentScreen instanceof SettingsMenu;
+		
+		if(event.button.id == SettingsButtons.OPEN_SETTINGS.getID() && inMinecraftSettings) {
+			Minecraft.getMinecraft().displayGuiScreen(currentHudMenu = new SettingsMenu(event.gui));
+		} else if(event.button.id == SettingsButtons.DONE.getID() && inHudSettings) {
+			Minecraft.getMinecraft().displayGuiScreen(currentHudMenu.parent);
+		} else if(event.button.id == SettingsButtons.ACCENT_COLOR.getID() && inHudSettings) {
+			currentHudMenu.buttonAccentColor
 		}
 	}
 	
@@ -28,6 +37,7 @@ public class SettingsEvents {
 					}
 				}
 			}
+			
 			event.buttonList.add(new GuiButton(SettingsButtons.OPEN_SETTINGS.getID(), x, y - 24, 150, 20, "Henry\'s Hud"));
 		}
 	}
