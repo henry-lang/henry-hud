@@ -9,13 +9,12 @@ import net.minecraftforge.client.event.RenderGameOverlayEvent;
 import net.minecraftforge.fml.common.eventhandler.SubscribeEvent;
 
 public class HudManager {
-	
 	public static String seperatorColor = EnumChatFormatting.WHITE.toString();
 	public static String mainColor = EnumChatFormatting.WHITE.toString();
-	public static String highlightColor = EnumChatFormatting.GOLD.toString() + EnumChatFormatting.BOLD.toString();
+	public static String highlightColor = EnumChatFormatting.GOLD.toString();
 	
-	public static char openSeperator = '<';
-	public static char closeSeperator = '>';
+	public static char openSeperator = '[';
+	public static char closeSeperator = ']';
 	
 	public static int sidePadding = 5;
 	public static int sepPadding = 10;
@@ -24,8 +23,8 @@ public class HudManager {
 	
 	public static void populateElements() {
 		elements.add(new HudTitle("Henry's Hud"));
-		elements.add(new HudFrameRate());
 		elements.add(new HudSpacing());
+		elements.add(new HudFrameRate());
 		elements.add(new HudClicks());
 		elements.add(new HudFacing());
 	}

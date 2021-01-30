@@ -1,13 +1,9 @@
 package net.henrylang.henryhud;
 
-import java.io.File;
-import java.io.IOException;
-import java.io.PrintWriter;
-
 import net.henrylang.henryhud.hud.HudManager;
 import net.henrylang.henryhud.presence.Presence;
 import net.henrylang.henryhud.presence.PresenceEvents;
-import net.minecraft.util.EnumChatFormatting;
+import net.henrylang.henryhud.settings.SettingsEvents;
 import net.minecraftforge.common.MinecraftForge;
 import net.minecraftforge.fml.common.Mod;
 import net.minecraftforge.fml.common.Mod.EventHandler;
@@ -20,15 +16,14 @@ public class ModMain {
     public static final String MODID = "henryhud";
     public static final String VERSION = "1.0";
     
-    final String DEFAULT_CONFIG = "TextShadow=0\n"
-    		+ "HighlightColor=gold";
-    
     @EventHandler
     public void preInit(FMLPreInitializationEvent event) {
     	MinecraftForge.EVENT_BUS.register(new HudManager());
     	MinecraftForge.EVENT_BUS.register(new PresenceEvents());
+    	MinecraftForge.EVENT_BUS.register(new SettingsEvents());
+    	
     	Presence.load();
-    	Config.load();
+//    	Config.load(event.getModConfigurationDirectory().getPath());
     }
     
     @EventHandler
@@ -40,9 +35,5 @@ public class ModMain {
     @EventHandler
     public void postInit(FMLPostInitializationEvent event) {
     	Presence.update("Playing Minecraft", "In the Menus");
-    }
-    
-    public static void loadConfig() {
-    	
     }
 }
